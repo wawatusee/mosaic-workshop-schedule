@@ -1,0 +1,371 @@
+
+/* ===== NAVIGATION SEMAINE ===== */
+.week-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  background-color: var(--color-light-gray);
+  border-bottom: var(--border-width) solid var(--color-gray);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.current-week {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-black);
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-primary-blue);
+  color: var(--color-black);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background-color: var(--color-primary-blue-dark);
+  color: var(--color-white);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.current-week-btn {
+  background-color: var(--color-primary-yellow) !important;
+  font-size: var(--font-size-sm);
+}
+
+.current-week-btn:hover {
+  background-color: var(--color-primary-yellow-dark) !important;
+}
+
+/* ===== CALENDRIER SEMAINE ===== */
+.week-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  min-height: 500px;
+}
+
+.day-column {
+  border-right: var(--border-width) solid var(--color-gray);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.day-column:last-child {
+  border-right: none;
+}
+
+.day-header {
+  padding: var(--spacing-md);
+  background: linear-gradient(to bottom, var(--color-primary-blue), var(--color-primary-blue-dark));
+  color: var(--color-black);
+  text-align: center;
+  border-bottom: var(--border-width) solid var(--color-gray);
+  font-weight: var(--font-weight-bold);
+}
+
+.day-name {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xs);
+}
+
+.day-date {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}
+
+.day-slots {
+  flex: 1;
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* ===== CRÉNEAUX HORAIRES ===== */
+.time-slot {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+  border: var(--border-width) solid transparent;
+  position: relative;
+}
+
+.time-slot.clickable {
+  cursor: pointer;
+}
+
+.time-slot.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Statuts des créneaux */
+.slot-available {
+  background-color: var(--color-success);
+  border-color: var(--color-success-dark);
+  color: var(--color-success-dark);
+}
+
+.slot-available.clickable:hover {
+  background-color: var(--color-success-dark);
+  color: var(--color-white);
+}
+
+.slot-reserved {
+  background-color: var(--color-warning);
+  border-color: var(--color-warning-dark);
+  color: var(--color-warning-dark);
+}
+
+.slot-confirmed {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger-dark);
+  color: var(--color-white);
+}
+
+/* Contenu des créneaux */
+.time-range {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xs);
+}
+
+.duration {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+  margin-bottom: var(--spacing-xs);
+}
+
+.status {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Jour fermé */
+.no-slots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--color-dark-gray);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ===== LÉGENDE ===== */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background-color: var(--color-light-gray);
+  border-top: var(--border-width) solid var(--color-gray);
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+.legend-item span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--border-radius-sm);
+  border: var(--border-width) solid;
+}
+
+.status-available {
+  background-color: var(--color-success);
+  border-color: var(--color-success-dark);
+}
+
+.status-reserved {
+  background-color: var(--color-warning);
+  border-color: var(--color-warning-dark);
+}
+
+.status-confirmed {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger-dark);
+}
+
+/* ===== MODAL RÉSERVATION ===== */
+#selected-slot-info {
+  background-color: var(--color-info);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-info-dark);
+}
+
+/* ===== RESPONSIVE CALENDRIER ===== */
+@media (max-width: 992px) {
+  .week-navigation {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-btn {
+    min-width: 150px;
+  }
+  
+  .week-calendar {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  
+  .day-column:nth-child(5),
+  .day-column:nth-child(6),
+  .day-column:nth-child(7) {
+    grid-row: 2;
+  }
+  
+  .day-column:nth-child(7) {
+    grid-column: 2;
+  }
+  
+  .legend {
+    justify-content: space-around;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .week-calendar {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .day-column {
+    border-right: none;
+    border-bottom: var(--border-width) solid var(--color-gray);
+    min-height: auto;
+  }
+  
+  .day-column:last-child {
+    border-bottom: none;
+  }
+  
+  .day-slots {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+  }
+  
+  .time-slot {
+    flex: 0 1 calc(50% - var(--spacing-xs));
+    min-width: 120px;
+  }
+  
+  .week-navigation {
+    padding: var(--spacing-md);
+  }
+  
+  .current-week {
+    font-size: var(--font-size-base);
+    min-width: auto;
+  }
+  
+  .legend {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .legend-item {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .time-slot {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+  
+  .day-slots {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-btn {
+    min-width: 120px;
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+  }
+  
+  .week-navigation {
+    gap: var(--spacing-xs);
+  }
+}
+
+/* ===== ÉTATS SPÉCIAUX ===== */
+/* Effet de chargement */
+.loading .time-slot {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.loading .time-slot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-primary-blue);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Focus pour accessibilité */
+.time-slot.clickable:focus {
+  outline: 2px solid var(--color-primary-blue-dark);
+  outline-offset: 2px;
+}
+
+/* Animations d'entrée */
+.time-slot {
+  animation: slideIn 0.3s ease-out;
+}
+
+.day-column:nth-child(1) .time-slot { animation-delay: 0.1s; }
+.day-column:nth-child(2) .time-slot { animation-delay: 0.15s; }
+.day-column:nth-child(3) .time-slot { animation-delay: 0.2s; }
+.day-column:nth-child(4) .time-slot { animation-delay: 0.25s; }
+.day-column:nth-child(5) .time-slot { animation-delay: 0.3s; }
+.day-column:nth-child(6) .time-slot { animation-delay: 0.35s; }
+.day-column:nth-child(7) .time-slot { animation-delay: 0.4s; }

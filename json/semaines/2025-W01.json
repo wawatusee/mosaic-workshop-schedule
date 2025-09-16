@@ -1,0 +1,9 @@
+{
+  "week": "2025-W01",
+  "slots": {
+    "monday": [
+      {"time": "09:00", "duration": 2, "status": "available"},
+      {"time": "14:00", "duration": 3, "status": "reserved", "clientId": "client_001", "confirmed": false}
+    ]
+  }
+}
