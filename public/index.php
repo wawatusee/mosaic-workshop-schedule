@@ -87,29 +87,53 @@ $calendarHtml = $calendarView->renderWeekCalendar($weekData, $selectedWeek, $cal
             <form id="reservation-form">
                 <input type="hidden" id="slot-info" name="slot-info">
                 
+                <!-- Champs de base (toujours visibles) -->
                 <div class="form-group">
-                    <label for="client-name">Nom complet *</label>
-                    <input type="text" id="client-name" name="client-name" required>
+                    <label for="client-firstname">Prénom *</label>
+                    <input type="text" id="client-firstname" name="client-firstname" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="client-email">Email *</label>
-                    <input type="email" id="client-email" name="client-email" required>
+                    <label for="message">Votre message</label>
+                    <textarea id="message" name="message" rows="3" 
+                              placeholder="Décrivez votre projet, vos attentes, questions..."></textarea>
                 </div>
                 
+                <!-- Case à cocher pour client initié -->
                 <div class="form-group">
-                    <label for="client-phone">Téléphone</label>
-                    <input type="tel" id="client-phone" name="client-phone">
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" id="is-initiated" name="is-initiated">
+                        <label for="is-initiated" class="checkbox-label">
+                            J'ai déjà reçu une initiation dans cet atelier
+                        </label>
+                    </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="message">Message (optionnel)</label>
-                    <textarea id="message" name="message" rows="3" placeholder="Précisez votre niveau, vos attentes..."></textarea>
+                <!-- Champs supplémentaires pour nouveaux clients (masqués par défaut) -->
+                <div id="new-client-fields" class="new-client-section">
+                    <hr>
+                    <h3>Vos coordonnées</h3>
+                    <p class="help-text">Pour les nouveaux participants, merci de renseigner vos coordonnées complètes :</p>
+                    
+                    <div class="form-group">
+                        <label for="client-lastname">Nom de famille *</label>
+                        <input type="text" id="client-lastname" name="client-lastname">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client-email">Email *</label>
+                        <input type="email" id="client-email" name="client-email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client-phone">Téléphone *</label>
+                        <input type="tel" id="client-phone" name="client-phone">
+                    </div>
                 </div>
                 
                 <div class="form-actions">
                     <button type="button" class="btn-cancel">Annuler</button>
-                    <button type="submit" class="btn-submit">Réserver</button>
+                    <button type="submit" class="btn-submit">Envoyer la demande</button>
                 </div>
             </form>
         </div>

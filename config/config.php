@@ -25,7 +25,7 @@ $DEFAULT_SLOTS = [
 ];
 
 // Jours de fermeture (dimanche par défaut)
-$CLOSED_DAYS = ['sunday'];
+$CLOSED_DAYS = ['monday'];
 
 // Fuseau horaire
 date_default_timezone_set('Europe/Brussels');
